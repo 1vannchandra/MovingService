@@ -5,5 +5,5 @@ button.addEventListener('click', (event) => {
     const email = document.getElementById('email').value;
     localStorage.setItem('email', email);
 
-    location.href = '/dashboard.html';
+    location.href = '/dashboard.php';
 });

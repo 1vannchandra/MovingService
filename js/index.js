@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
-    console.log("adsadad");
     if (window.scrollY > 0) {
       document.querySelector("header").style.backgroundColor = "white";
       document.querySelector("header").style.backdropFilter = "blur(10px)";
@@ -12,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showToast(message, duration = 3000) {
     const toast = document.getElementById("toast");
+
     toast.textContent = message;
 
     toast.classList.add("show");
@@ -23,7 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }, duration);
   }
 
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+
   setTimeout(() => {
-    showToast("Selamat Datang di Furnyetur!", 3000);
+    showToast('Selamat Datang ' + getCookie("username"), 3000);
   }, 1000);
 });
